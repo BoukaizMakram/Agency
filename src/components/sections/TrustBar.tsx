@@ -5,12 +5,12 @@ import { gsap, useGSAP } from "@/lib/gsap";
 import Marquee from "@/components/ui/Marquee";
 
 const stats = [
-  "50+ Projects Delivered",
-  "30+ Happy Clients",
-  "5 Years of Experience",
-  "98% Client Satisfaction",
-  "12 Team Members",
-  "3 Design Awards",
+  "20+ Training Centers Powered",
+  "5,000+ Students Managed",
+  "100% Custom Built",
+  "Zero Generic Templates",
+  "Desktop · Tablet · Mobile",
+  "Replaces 5+ Tools",
 ];
 
 export default function TrustBar() {
@@ -40,15 +40,15 @@ export default function TrustBar() {
   return (
     <section
       ref={sectionRef}
-      className="border-y border-border bg-background-card py-6"
+      className="py-6"
     >
       <Marquee speed="slow">
         {stats.map((stat) => (
           <div key={stat} className="flex items-center gap-8">
-            <span className="whitespace-nowrap text-sm font-medium text-foreground-muted">
+            <span className="whitespace-nowrap text-sm font-medium text-foreground">
               {stat}
             </span>
-            <span className="text-foreground-muted/50" aria-hidden="true">
+            <span className="text-foreground/50" aria-hidden="true">
               &#9670;
             </span>
           </div>

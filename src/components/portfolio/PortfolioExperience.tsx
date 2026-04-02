@@ -48,20 +48,20 @@ export default function PortfolioExperience() {
               key={exp.company}
               className="exp-card group rounded-2xl border border-border bg-background p-8 transition-colors hover:border-foreground/20"
             >
-              <p className="font-display text-sm font-semibold text-foreground-muted">
+              <p className="font-display text-sm font-semibold text-foreground">
                 {exp.role}
               </p>
               <h3 className="mt-3 font-display text-xl font-semibold text-foreground">
                 {exp.company}
               </h3>
-              <p className="mt-4 text-sm leading-relaxed text-foreground-muted">
+              <p className="mt-4 text-sm leading-relaxed text-foreground">
                 {exp.description}
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {exp.highlights.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-border px-3 py-1 text-xs text-foreground-muted"
+                    className="rounded-full border border-border px-3 py-1 text-xs text-foreground"
                   >
                     {tag}
                   </span>

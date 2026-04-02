@@ -46,7 +46,7 @@ export default function PortfolioAbout() {
         <div className="mx-auto max-w-3xl">
           <TextReveal
             text={MAKRAM.bio}
-            className="text-foreground-muted"
+            className="text-foreground"
           />
 
           <div ref={statsRef} className="mt-16 grid grid-cols-3 gap-8">
@@ -55,7 +55,7 @@ export default function PortfolioAbout() {
                 <p className="font-display text-4xl font-bold text-foreground">
                   {stat.number}
                 </p>
-                <p className="mt-2 text-sm text-foreground-muted">
+                <p className="mt-2 text-sm text-foreground">
                   {stat.label}
                 </p>
               </div>

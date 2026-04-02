@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import Image from "next/image";
 import { NAV_LINKS, SOCIAL_LINKS, SITE_CONFIG } from "@/lib/constants";
 import { Globe, ExternalLink, Link2, ArrowUpRight } from "lucide-react";
 
@@ -18,23 +19,31 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="bg-foreground text-background border-t border-background/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <h3 className="font-display text-2xl font-bold text-foreground">
-              {SITE_CONFIG.name}
-              <span className="text-foreground-muted">.</span>
-            </h3>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-foreground-muted">
+            <div className="flex items-center gap-2">
+              <Image
+                src="/LOGO/logo_transparent.png"
+                alt={SITE_CONFIG.name}
+                width={32}
+                height={32}
+                className="h-8 w-8 invert"
+              />
+              <h3 className="font-display text-2xl font-bold text-background">
+                {SITE_CONFIG.name}
+              </h3>
+            </div>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-background/70">
               {SITE_CONFIG.description}
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground-muted">
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-background/60">
               Navigation
             </h4>
             <ul className="space-y-3">
@@ -42,7 +51,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <button
                     onClick={() => handleNavClick(link.href)}
-                    className="text-sm text-foreground-muted transition-colors hover:text-foreground"
+                    className="text-sm text-background/70 transition-colors hover:text-background"
                   >
                     {link.label}
                   </button>
@@ -53,7 +62,7 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground-muted">
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-background/60">
               Connect
             </h4>
             <div className="flex gap-4">
@@ -65,7 +74,7 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground-muted transition-colors hover:border-foreground hover:text-foreground"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-background/20 text-background/70 transition-colors hover:border-background hover:text-background"
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -74,14 +83,14 @@ export default function Footer() {
                 );
               })}
             </div>
-            <p className="mt-6 text-sm text-foreground-muted">
+            <p className="mt-6 text-sm text-background/70">
               {SITE_CONFIG.email}
             </p>
           </div>
         </div>
 
-        <div className="mt-16 border-t border-border pt-8 text-center">
-          <p className="text-xs text-foreground-muted">
+        <div className="mt-16 border-t border-background/10 pt-8 text-center">
+          <p className="text-xs text-background/50">
             &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. All rights
             reserved.
           </p>

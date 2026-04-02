@@ -56,7 +56,7 @@ export default function Testimonials() {
   return (
     <section
       id="reviews"
-      className="section-padding bg-background-card"
+      className="section-padding"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -91,7 +91,7 @@ export default function Testimonials() {
                 <p className="font-semibold text-foreground">
                   {testimonial.author}
                 </p>
-                <p className="mt-1 text-sm text-foreground-muted">
+                <p className="mt-1 text-sm text-foreground">
                   {testimonial.role}, {testimonial.company}
                 </p>
               </div>
@@ -104,7 +104,7 @@ export default function Testimonials() {
               onClick={prev}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground-muted transition-colors hover:border-foreground hover:text-foreground"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-foreground hover:text-foreground"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={18} />
@@ -118,7 +118,7 @@ export default function Testimonials() {
                   className={`h-2 rounded-full transition-all duration-300 ${
                     i === current
                       ? "w-8 bg-foreground"
-                      : "w-2 bg-border hover:bg-foreground-muted"
+                      : "w-2 bg-border hover:bg-foreground"
                   }`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
@@ -129,7 +129,7 @@ export default function Testimonials() {
               onClick={next}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground-muted transition-colors hover:border-foreground hover:text-foreground"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-foreground hover:text-foreground"
               aria-label="Next testimonial"
             >
               <ChevronRight size={18} />

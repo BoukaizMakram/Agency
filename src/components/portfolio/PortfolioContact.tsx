@@ -72,7 +72,7 @@ export default function PortfolioContact() {
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Left */}
           <div>
-            <p className="contact-reveal mb-6 font-display text-sm font-medium uppercase tracking-widest text-foreground-muted">
+            <p className="contact-reveal mb-6 font-display text-sm font-medium uppercase tracking-widest text-foreground">
               / Get in Touch
             </p>
 
@@ -92,7 +92,7 @@ export default function PortfolioContact() {
               ))}
             </h2>
 
-            <p className="contact-reveal mt-6 max-w-md text-foreground-muted leading-relaxed">
+            <p className="contact-reveal mt-6 max-w-md text-foreground leading-relaxed">
               Have a project, collaboration, or opportunity? I&apos;d love to
               hear about it.
             </p>
@@ -110,12 +110,12 @@ export default function PortfolioContact() {
                   <Mail size={22} />
                 </div>
                 <div>
-                  <p className="text-sm text-foreground-muted">Email</p>
+                  <p className="text-sm text-foreground">Email</p>
                   <p className="font-medium text-foreground">{MAKRAM.email}</p>
                 </div>
                 <ArrowUpRight
                   size={18}
-                  className="ml-auto text-foreground-muted transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-foreground"
+                  className="ml-auto text-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground"
                 />
               </a>
 
@@ -127,7 +127,7 @@ export default function PortfolioContact() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-xl border border-border px-5 py-3 text-sm font-medium text-foreground-muted transition-colors hover:border-foreground/20 hover:text-foreground"
+                    className="flex items-center gap-2 rounded-xl border border-border px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-foreground/20 hover:text-foreground"
                   >
                     {social.label}
                     <ArrowUpRight size={14} />

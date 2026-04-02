@@ -55,7 +55,7 @@ export default function PortfolioSkills() {
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full border border-border px-3 py-1.5 text-xs text-foreground-muted transition-colors hover:border-foreground/20 hover:text-foreground"
+                    className="rounded-full border border-border px-3 py-1.5 text-xs text-foreground transition-colors hover:border-foreground/20 hover:text-foreground"
                   >
                     {skill}
                   </span>

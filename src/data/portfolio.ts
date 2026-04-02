@@ -1,42 +1,42 @@
 export const projects = [
   {
     id: 1,
-    title: "Lumière Fashion",
-    category: "E-Commerce",
+    title: "FitTrack Pro",
+    category: "Gym & Fitness",
     year: "2025",
     description:
-      "A luxury fashion e-commerce platform with immersive product showcases and seamless checkout experience.",
+      "A complete gym management platform with member check-ins, class booking, trainer scheduling, and automated billing for a 3-location fitness chain.",
     image: "/images/portfolio/project-1.jpg",
-    tags: ["Web Design", "Development", "E-Commerce"],
+    tags: ["Member Management", "Scheduling", "Payments"],
   },
   {
     id: 2,
-    title: "Nexus Finance",
-    category: "Fintech",
+    title: "LinguaHub",
+    category: "Language School",
     year: "2025",
     description:
-      "A modern fintech dashboard that simplifies complex financial data into intuitive, actionable insights.",
+      "Student enrollment, level placement, group class scheduling, and progress tracking for a language school managing 800+ students across 6 languages.",
     image: "/images/portfolio/project-2.jpg",
-    tags: ["UI/UX", "Dashboard", "Fintech"],
+    tags: ["Student Tracking", "Multi-language", "Reporting"],
   },
   {
     id: 3,
-    title: "Verdant Health",
-    category: "Healthcare",
+    title: "CoachSync",
+    category: "Coaching Academy",
     year: "2024",
     description:
-      "A telemedicine platform connecting patients with healthcare providers through a warm, accessible interface.",
+      "Session booking, coach availability management, payment tracking, and parent communication portal for a youth sports coaching academy.",
     image: "/images/portfolio/project-3.jpg",
-    tags: ["Mobile App", "Healthcare", "UX Research"],
+    tags: ["Booking System", "Parent Portal", "Mobile App"],
   },
   {
     id: 4,
-    title: "Atlas Travel",
-    category: "Travel & Hospitality",
+    title: "AcademiFlow",
+    category: "Tutoring Center",
     year: "2024",
     description:
-      "An AI-powered travel planning platform with stunning destination showcases and personalized itineraries.",
+      "Multi-branch tutoring center platform with student-teacher matching, room allocation, invoice generation, and real-time attendance tracking.",
     image: "/images/portfolio/project-4.jpg",
-    tags: ["Web Design", "AI Integration", "Travel"],
+    tags: ["Multi-branch", "Attendance", "Invoicing"],
   },
 ];

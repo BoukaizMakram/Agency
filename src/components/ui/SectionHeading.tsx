@@ -59,7 +59,7 @@ export default function SectionHeading({
       )}
     >
       {label && (
-        <p className="scroll-reveal mb-4 font-display text-sm font-medium uppercase tracking-widest text-foreground-muted">
+        <p className="scroll-reveal mb-4 font-display text-sm font-medium uppercase tracking-widest text-foreground">
           / {label}
         </p>
       )}
@@ -73,7 +73,7 @@ export default function SectionHeading({
       {description && (
         <p
           className={cn(
-            "scroll-reveal mt-4 text-foreground-muted leading-relaxed",
+            "scroll-reveal mt-4 text-foreground leading-relaxed",
             align === "center" && "mx-auto max-w-2xl"
           )}
           style={{ fontSize: "var(--text-body)" }}

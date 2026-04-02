@@ -11,13 +11,12 @@ export const SOCIAL_LINKS = [
   { label: "Twitter", href: "https://twitter.com", icon: "twitter" },
   { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
   { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
-  { label: "Dribbble", href: "https://dribbble.com", icon: "dribbble" },
 ] as const;
 
 export const SITE_CONFIG = {
-  name: "Snowflake",
-  tagline: "Digital Agency",
+  name: "Snowflake Systems",
+  tagline: "Custom Software",
   description:
-    "We craft digital experiences that blend strategy, design, and technology to help brands thrive in the modern world.",
-  email: "hello@snowflake.agency",
+    "We build fully custom software for training centers and coaching businesses — replacing spreadsheets, WhatsApp, and manual tracking with one centralized platform.",
+  email: "hello@snowflakesystems.com",
 } as const;

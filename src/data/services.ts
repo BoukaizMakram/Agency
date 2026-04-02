@@ -2,49 +2,49 @@ export const services = [
   {
     id: 1,
     number: "01",
-    title: "Brand Strategy",
+    title: "Student Management",
     description:
-      "We define your brand's core identity, positioning, and voice to create a foundation that resonates with your audience and stands out in the market.",
-    icon: "Compass" as const,
+      "Enrollment, progress tracking, attendance, and student profiles — all in one place. No more scattered spreadsheets or manual record-keeping.",
+    icon: "Users" as const,
   },
   {
     id: 2,
     number: "02",
-    title: "Web Design & Development",
+    title: "Scheduling & Booking",
     description:
-      "From concept to code, we build beautiful, high-performance websites that convert visitors into customers with seamless user experiences.",
-    icon: "Monitor" as const,
+      "Class timetables, room allocation, and teacher assignments that update in real time. Students book sessions directly — no back-and-forth messages.",
+    icon: "Calendar" as const,
   },
   {
     id: 3,
     number: "03",
-    title: "Mobile Applications",
+    title: "Payment & Invoicing",
     description:
-      "Native and cross-platform mobile apps designed for engagement, built for scale, and optimized for the best possible user experience.",
-    icon: "Smartphone" as const,
+      "Recurring billing, payment tracking, automated receipts, and overdue reminders. Know exactly who's paid and who hasn't at a glance.",
+    icon: "CreditCard" as const,
   },
   {
     id: 4,
     number: "04",
-    title: "UI/UX Design",
+    title: "Teacher & Staff Coordination",
     description:
-      "Research-driven interface design that balances aesthetics with usability, creating intuitive digital products people love to use.",
-    icon: "Palette" as const,
+      "Manage availability, assignments, and internal communication without WhatsApp groups. Everyone sees their schedule and responsibilities clearly.",
+    icon: "UserCog" as const,
   },
   {
     id: 5,
     number: "05",
-    title: "Digital Marketing",
+    title: "Desktop, Tablet & Mobile",
     description:
-      "Data-driven marketing strategies that amplify your brand's reach, drive qualified traffic, and deliver measurable growth.",
-    icon: "TrendingUp" as const,
+      "Access your platform from any device. Whether you're at the front desk, in a classroom, or on the go — your system works everywhere.",
+    icon: "Monitor" as const,
   },
   {
     id: 6,
     number: "06",
-    title: "Motion & Animation",
+    title: "Analytics & Reporting",
     description:
-      "Captivating motion design and micro-interactions that bring your digital products to life and enhance user engagement.",
-    icon: "Sparkles" as const,
+      "Business insights, student performance trends, revenue reports, and occupancy rates. Make decisions based on real data, not gut feelings.",
+    icon: "BarChart3" as const,
   },
 ];

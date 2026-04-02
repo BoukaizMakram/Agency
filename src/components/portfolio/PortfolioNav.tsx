@@ -69,7 +69,7 @@ export default function PortfolioNav() {
                 onClick={() => scrollTo(item.href)}
                 className="relative rounded-full px-4 py-2 text-sm font-medium transition-colors"
                 style={{
-                  color: active === item.label ? "var(--background)" : "var(--foreground-muted)",
+                  color: active === item.label ? "var(--background)" : "var(--foreground)",
                 }}
               >
                 {active === item.label && (

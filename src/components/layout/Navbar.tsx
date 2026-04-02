@@ -3,6 +3,9 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -11,6 +14,8 @@ export default function Navbar() {
   const [isHidden, setIsHidden] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,8 +32,12 @@ export default function Navbar() {
 
   const handleNavClick = (href: string) => {
     setIsMobileOpen(false);
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
+    if (pathname === "/") {
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push("/" + href);
+    }
   };
 
   return (
@@ -45,43 +54,59 @@ export default function Navbar() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
-            <motion.a
+            <a
               href="#home"
               onClick={(e) => {
                 e.preventDefault();
                 handleNavClick("#home");
               }}
-              className="font-display text-xl font-bold tracking-tight text-foreground"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-2"
             >
-              {SITE_CONFIG.name}
-              <span className="text-foreground-muted">.</span>
-            </motion.a>
+              <Image
+                src="/LOGO/logo_transparent.png"
+                alt={SITE_CONFIG.name}
+                width={36}
+                height={36}
+                className="h-9 w-9"
+              />
+              <span className="font-display text-lg font-bold tracking-tight text-foreground">
+                {SITE_CONFIG.name}
+              </span>
+            </a>
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-1">
               {NAV_LINKS.map((link) => (
-                <motion.button
+                <button
                   key={link.label}
                   onClick={() => handleNavClick(link.href)}
-                  className="relative px-4 py-2 text-sm text-foreground-muted transition-colors hover:text-foreground"
-                  whileHover={{ y: -1 }}
+                  className="hover-line relative px-4 py-2 text-sm text-foreground transition-colors hover:text-foreground"
                 >
                   {link.label}
-                </motion.button>
+                </button>
               ))}
             </div>
 
-            {/* CTA Button */}
-            <motion.button
-              onClick={() => handleNavClick("#contact")}
-              className="hidden md:flex items-center gap-2 rounded-full bg-foreground px-6 py-2.5 text-sm font-medium text-background transition-colors hover:bg-accent-hover"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              Let&apos;s Talk
-            </motion.button>
+            {/* CTA Buttons */}
+            <div className="hidden md:flex items-center gap-3">
+              <motion.button
+                onClick={() => handleNavClick("#contact")}
+                className="flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-foreground"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                Let&apos;s Talk
+              </motion.button>
+              <Link href="/quote">
+                <motion.span
+                  className="flex items-center gap-2 rounded-full bg-foreground px-6 py-2.5 text-sm font-medium text-background transition-colors hover:bg-accent-hover"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  Start a Project
+                </motion.span>
+              </Link>
+            </div>
 
             {/* Mobile Menu Toggle */}
             <motion.button
@@ -114,7 +139,7 @@ export default function Navbar() {
                   exit={{ opacity: 0, y: 20 }}
                   transition={{ delay: i * 0.08, duration: 0.4 }}
                   onClick={() => handleNavClick(link.href)}
-                  className="font-display text-3xl font-semibold text-foreground transition-colors hover:text-foreground-muted"
+                  className="font-display text-3xl font-semibold text-foreground transition-colors hover:text-foreground"
                 >
                   {link.label}
                 </motion.button>
@@ -128,10 +153,24 @@ export default function Navbar() {
                   duration: 0.4,
                 }}
                 onClick={() => handleNavClick("#contact")}
-                className="mt-4 rounded-full bg-foreground px-8 py-3 text-lg font-medium text-background"
+                className="mt-4 rounded-full border border-foreground px-8 py-3 text-lg font-medium text-foreground"
               >
                 Let&apos;s Talk
               </motion.button>
+              <Link href="/quote" onClick={() => setIsMobileOpen(false)}>
+                <motion.span
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{
+                    delay: (NAV_LINKS.length + 1) * 0.08,
+                    duration: 0.4,
+                  }}
+                  className="inline-block rounded-full bg-foreground px-8 py-3 text-lg font-medium text-background"
+                >
+                  Start a Project
+                </motion.span>
+              </Link>
             </div>
           </motion.div>
         )}

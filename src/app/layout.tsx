@@ -3,16 +3,19 @@ import { inter, sora } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Snowflake | Digital Agency",
+  title: "Snowflake Systems | Custom Software for Training Centers",
   description:
-    "We craft digital experiences that blend strategy, design, and technology to help brands thrive in the modern world.",
+    "We build fully custom software for training centers and coaching businesses — student management, scheduling, payments, and more in one platform.",
   keywords: [
-    "digital agency",
-    "web design",
-    "branding",
-    "UI/UX",
-    "development",
+    "training center software",
+    "coaching business platform",
+    "student management system",
+    "custom software",
+    "scheduling software",
   ],
+  icons: {
+    icon: "/LOGO/favicon.jpg",
+  },
 };
 
 export default function RootLayout({
@@ -22,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${sora.variable}`} style={{ colorScheme: "light" }}>
-      <body className="min-h-screen antialiased bg-white text-[#0A0A0A]">
+      <body className="min-h-screen antialiased text-[#0A0A0A]">
         {children}
       </body>
     </html>

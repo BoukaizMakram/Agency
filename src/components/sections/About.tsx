@@ -49,27 +49,27 @@ export default function About() {
           <div>
             <SectionHeading
               label="About Us"
-              title="We build what"
-              highlight="matters."
+              title="Software built for"
+              highlight="how you work."
               align="left"
             />
             <TextReveal
-              text="We work with founders, product teams, companies and brands based on strategy and innovation. We set one goal, cut noise, and move. When the job is done, the result is live and measured, not just designed."
-              className="mt-8 text-foreground-muted"
+              text="We don't sell generic tools. We sit down with training center owners and coaches, understand exactly how they operate, and build a system that fits — from student enrollment and scheduling to payments and teacher coordination. One platform, fully yours."
+              className="mt-8 text-foreground"
             />
 
             {/* Stats */}
             <div ref={statsRef} className="mt-12 grid grid-cols-3 gap-6">
               {[
-                { number: "50+", label: "Projects" },
-                { number: "5+", label: "Years" },
-                { number: "98%", label: "Satisfaction" },
+                { number: "20+", label: "Centers Powered" },
+                { number: "100%", label: "Custom Built" },
+                { number: "0", label: "Generic Templates" },
               ].map((stat) => (
                 <div key={stat.label} className="stat-item">
                   <p className="font-display text-3xl font-bold text-foreground">
                     {stat.number}
                   </p>
-                  <p className="mt-1 text-sm text-foreground-muted">
+                  <p className="mt-1 text-sm text-foreground">
                     {stat.label}
                   </p>
                 </div>
@@ -81,13 +81,13 @@ export default function About() {
           <div ref={imageRef} className="relative">
             <motion.div
               style={{ y: imageY }}
-              className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-background-card"
+              className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-white/30 bg-white/60 backdrop-blur-md"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-neutral-200/50 via-transparent to-neutral-300/30" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <span className="font-display text-8xl font-bold text-foreground/5">
-                    S.
+                    SS.
                   </span>
                 </div>
               </div>

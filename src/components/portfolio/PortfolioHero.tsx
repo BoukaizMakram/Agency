@@ -42,7 +42,7 @@ export default function PortfolioHero() {
               initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mb-2 font-display text-sm font-medium uppercase tracking-widest text-foreground-muted"
+              className="mb-2 font-display text-sm font-medium uppercase tracking-widest text-foreground"
             >
               Creative Technologist
             </motion.p>
@@ -95,7 +95,7 @@ export default function PortfolioHero() {
               initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mb-2 font-display text-sm font-medium uppercase tracking-widest text-foreground-muted"
+              className="mb-2 font-display text-sm font-medium uppercase tracking-widest text-foreground"
             >
               UI/UX &amp; Motion Designer
             </motion.p>
@@ -116,7 +116,7 @@ export default function PortfolioHero() {
               initial={{ opacity: 0, filter: "blur(4px)" }}
               animate={{ opacity: 1, filter: "blur(0px)" }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-3 font-display text-xs font-medium uppercase tracking-widest text-foreground-muted"
+              className="mt-3 font-display text-xs font-medium uppercase tracking-widest text-foreground"
             >
               Based in Morocco
             </motion.p>
@@ -128,7 +128,7 @@ export default function PortfolioHero() {
           initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="mx-auto mt-12 max-w-xl px-6 text-center text-foreground-muted leading-relaxed"
+          className="mx-auto mt-12 max-w-xl px-6 text-center text-foreground leading-relaxed"
           style={{ fontSize: "var(--text-body)" }}
         >
           {MAKRAM.tagline}
@@ -147,10 +147,10 @@ export default function PortfolioHero() {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-xs uppercase tracking-widest text-foreground-muted">
+          <span className="text-xs uppercase tracking-widest text-foreground">
             Scroll
           </span>
-          <div className="h-8 w-px bg-foreground-muted/40" />
+          <div className="h-8 w-px bg-foreground/40" />
         </motion.div>
       </motion.div>
     </section>

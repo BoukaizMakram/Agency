@@ -18,7 +18,7 @@ const variants = {
   outline:
     "border border-border text-foreground hover:border-foreground",
   ghost:
-    "text-foreground-muted hover:text-foreground",
+    "text-foreground hover:text-foreground",
 };
 
 const sizes = {

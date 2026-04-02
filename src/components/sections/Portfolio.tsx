@@ -9,13 +9,13 @@ export default function Portfolio() {
     <section id="work" className="section-padding">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
-          label="Portfolio"
-          title="Selected"
-          highlight="Work"
-          description="A carefully picked showcase of projects that highlight our commitment to craft and innovation."
+          label="Case Studies"
+          title="Real"
+          highlight="Results"
+          description="Training centers and coaching businesses we've built custom platforms for — from enrollment to payments."
         />
 
-        <div className="space-y-8">
+        <div>
           {projects.map((project, i) => (
             <PortfolioCard
               key={project.id}
@@ -25,6 +25,7 @@ export default function Portfolio() {
               description={project.description}
               tags={project.tags}
               index={i}
+              total={projects.length}
             />
           ))}
         </div>

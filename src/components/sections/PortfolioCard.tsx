@@ -13,6 +13,7 @@ interface PortfolioCardProps {
   description: string;
   tags: string[];
   index: number;
+  total: number;
 }
 
 export default function PortfolioCard({
@@ -22,48 +23,76 @@ export default function PortfolioCard({
   description,
   tags,
   index,
+  total,
 }: PortfolioCardProps) {
   const isReversed = index % 2 !== 0;
-  const cardRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const isLast = index === total - 1;
 
   useGSAP(
     () => {
-      if (!cardRef.current) return;
+      if (!wrapperRef.current) return;
+      const el = wrapperRef.current;
 
+      // Entrance animation
       gsap.fromTo(
-        cardRef.current,
-        { opacity: 0, y: 40, filter: "blur(8px)" },
+        el,
+        { opacity: 0, y: 60, filter: "blur(8px)" },
         {
           opacity: 1,
           y: 0,
           filter: "blur(0px)",
           scrollTrigger: {
-            trigger: cardRef.current,
-            start: "top 90%",
-            end: "top 60%",
+            trigger: el,
+            start: "top 92%",
+            end: "top 55%",
             scrub: true,
           },
         }
       );
+
+      // 3D exit animation — card scales down & tilts as next card covers it
+      if (!isLast) {
+        gsap.to(el, {
+          scale: 0.92,
+          rotateX: 5,
+          scrollTrigger: {
+            trigger: el,
+            start: "bottom 80%",
+            end: "bottom 20%",
+            scrub: true,
+          },
+        });
+      }
     },
-    { scope: cardRef }
+    { scope: wrapperRef }
   );
 
+  const stickyTop = 80 + index * 20;
+
   return (
-    <div ref={cardRef}>
+    <div
+      ref={wrapperRef}
+      className="sticky"
+      style={{
+        top: `${stickyTop}px`,
+        zIndex: index + 1,
+        perspective: "1200px",
+        transformStyle: "preserve-3d",
+        paddingBottom: isLast ? 0 : "2rem",
+      }}
+    >
       <Card3D>
-        <div
-          className="group grid grid-cols-1 gap-8 rounded-2xl border border-border bg-background-card p-6 transition-colors hover:border-foreground/20 lg:grid-cols-2 lg:p-10"
-        >
+        <div className="group grid grid-cols-1 gap-10 rounded-3xl border border-neutral-200 bg-white p-8 shadow-xl shadow-black/[0.08] lg:grid-cols-2 lg:p-12">
           {/* Image Placeholder */}
           <div
-            className={`relative aspect-video overflow-hidden rounded-xl bg-background-subtle ${
+            className={`relative aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-100 ${
               isReversed ? "lg:order-2" : ""
             }`}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-neutral-200/30 to-neutral-100/20" />
+            <div className="absolute inset-0 bg-gradient-to-br from-neutral-200/50 to-neutral-100/30" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="font-display text-6xl font-bold text-foreground/5">
+              <span className="font-display text-8xl font-bold text-foreground/[0.03]">
                 {String(index + 1).padStart(2, "0")}
               </span>
             </div>
@@ -86,29 +115,28 @@ export default function PortfolioCard({
             }`}
             style={{ direction: "ltr" }}
           >
-            <div className="flex items-center gap-3 text-sm text-foreground-muted">
+            <div className="flex items-center gap-3 text-sm text-foreground">
               <span>{category}</span>
-              <span className="text-foreground-muted">&#9670;</span>
+              <span className="text-foreground">&#9670;</span>
               <span>{year}</span>
             </div>
             <h3
-              className="mt-4 font-display font-bold text-foreground"
-              style={{ fontSize: "var(--text-h3)" }}
+              className="mt-4 font-display text-3xl font-bold text-foreground lg:text-4xl"
             >
               {title}
             </h3>
-            <p className="mt-3 text-foreground-muted leading-relaxed">
+            <p className="mt-4 text-foreground/80 leading-relaxed lg:text-lg">
               {description}
             </p>
             <div
-              className={`mt-6 flex flex-wrap gap-2 ${
+              className={`mt-8 flex flex-wrap gap-2 ${
                 isReversed ? "lg:justify-end" : ""
               }`}
             >
               {tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-border px-3 py-1 text-xs text-foreground-muted"
+                  className="rounded-full border border-neutral-200 bg-neutral-50 px-4 py-1.5 text-xs font-medium text-foreground"
                 >
                   {tag}
                 </span>

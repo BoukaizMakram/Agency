@@ -54,27 +54,27 @@ export default function PortfolioProjects() {
             >
               {/* Number + Category */}
               <div>
-                <span className="font-display text-sm font-semibold text-foreground-muted">
+                <span className="font-display text-sm font-semibold text-foreground">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-2 font-display text-xl font-bold text-foreground">
                   {project.title}
                 </h3>
-                <p className="mt-1 text-sm text-foreground-muted">
+                <p className="mt-1 text-sm text-foreground">
                   {project.category}
                 </p>
               </div>
 
               {/* Description + Tags */}
               <div>
-                <p className="text-foreground-muted leading-relaxed">
+                <p className="text-foreground leading-relaxed">
                   {project.description}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-border px-3 py-1 text-xs text-foreground-muted"
+                      className="rounded-full border border-border px-3 py-1 text-xs text-foreground"
                     >
                       {tag}
                     </span>
@@ -86,7 +86,7 @@ export default function PortfolioProjects() {
               <div className="hidden lg:block">
                 <ArrowUpRight
                   size={20}
-                  className="text-foreground-muted transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-foreground"
+                  className="text-foreground transition-transform group-hover:translate-x-1 group-hover:text-foreground"
                 />
               </div>
             </a>

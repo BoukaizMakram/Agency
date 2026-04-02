@@ -2,11 +2,9 @@
 
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { ChevronDown } from "lucide-react";
-import BlurOrb from "@/components/ui/BlurOrb";
 import Button from "@/components/ui/Button";
 
-const words = ["We", "craft", "digital", "experiences"];
+const words = ["We", "build", "your", "system"];
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -17,54 +15,66 @@ export default function Hero() {
 
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
-  const indicatorOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
   return (
     <section
       ref={sectionRef}
       id="home"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+      className="relative flex min-h-screen items-center overflow-hidden"
     >
-      {/* Blur Orbs */}
-      <BlurOrb
-        color="accent"
-        size="lg"
-        className="top-1/4 -left-[200px]"
-      />
-      <BlurOrb
-        color="blue"
-        size="md"
-        className="top-1/3 -right-[100px] animate-float-delayed"
-      />
-      <BlurOrb
-        color="purple"
-        size="sm"
-        className="bottom-1/4 left-1/3 animate-float-delayed"
-      />
-
       {/* Content */}
       <motion.div
         style={{ opacity, y }}
-        className="relative z-10 mx-auto max-w-5xl px-6 text-center"
+        className="relative z-10 w-full px-6 pb-10 pt-24 lg:px-10 xl:px-14"
       >
-        {/* Headline */}
-        <h1 className="font-display font-bold leading-[0.95] tracking-tight">
+        {/* Full-width headline — fills the viewport */}
+        <h1
+          className="w-full lowercase leading-[0.82] tracking-tighter"
+          style={{
+            fontFamily: '"Nohemi", ui-sans-serif, system-ui, sans-serif',
+            color: "var(--foreground)",
+          }}
+        >
           {words.map((word, i) => (
             <motion.span
               key={i}
-              initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              transition={{
-                duration: 0.7,
-                delay: 0.2 + i * 0.12,
-                ease: [0.25, 0.46, 0.45, 0.94],
+              initial={{
+                opacity: 0,
+                y: 60,
+                filter: "blur(10px)",
+                fontWeight: 100,
               }}
-              className="inline-block"
+              animate={{
+                opacity: 1,
+                y: 0,
+                filter: "blur(0px)",
+                fontWeight: 800,
+              }}
+              transition={{
+                opacity: {
+                  duration: 0.6,
+                  delay: 0.15 + i * 0.1,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                },
+                y: {
+                  duration: 0.8,
+                  delay: 0.15 + i * 0.1,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                },
+                filter: {
+                  duration: 0.8,
+                  delay: 0.15 + i * 0.1,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                },
+                fontWeight: {
+                  duration: 1.2,
+                  delay: 0.3 + i * 0.1,
+                  ease: [0.25, 0.46, 0.45, 0.94],
+                },
+              }}
+              className="block w-full"
               style={{
-                fontSize: "var(--text-hero)",
-                marginRight: "0.25em",
-                color:
-                  word === "digital" ? "var(--foreground-muted)" : "var(--foreground)",
+                fontSize: "clamp(3rem, 13vw, 15rem)",
               }}
             >
               {word}
@@ -72,65 +82,49 @@ export default function Hero() {
           ))}
         </h1>
 
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mx-auto mt-8 max-w-xl text-foreground-muted leading-relaxed"
-          style={{ fontSize: "var(--text-body)" }}
-        >
-          We blend strategy, design, and technology to build brands that
-          stand out and products that perform.
-        </motion.p>
-
-        {/* CTAs */}
+        {/* Tagline + CTAs — right-aligned */}
         <motion.div
-          initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+          initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.6, delay: 1.0 }}
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+          transition={{ duration: 0.7, delay: 0.7 }}
+          className="-mt-[clamp(4rem,10vw,12rem)] ml-auto flex max-w-sm flex-col items-end text-right relative z-20"
         >
-          <Button
-            size="lg"
-            onClick={() =>
-              document
-                .querySelector("#work")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
+          <p
+            className="text-foreground leading-relaxed"
+            style={{ fontSize: "var(--text-body)" }}
           >
-            View Our Work
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={() =>
-              document
-                .querySelector("#contact")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-          >
-            Get in Touch
-          </Button>
+            Custom software that replaces spreadsheets, WhatsApp groups, and
+            manual tracking with{" "}
+            <strong className="font-semibold text-foreground">
+              one platform built around your workflow.
+            </strong>
+          </p>
+          <div className="mt-6 flex gap-4">
+            <Button
+              size="lg"
+              onClick={() =>
+                document
+                  .querySelector("#work")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              See How It Works
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() =>
+                document
+                  .querySelector("#contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Get in Touch
+            </Button>
+          </div>
         </motion.div>
       </motion.div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        style={{ opacity: indicatorOpacity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2"
-        >
-          <span className="text-xs uppercase tracking-widest text-foreground-muted">
-            Scroll
-          </span>
-          <ChevronDown size={20} className="text-foreground-muted" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

@@ -1,6 +1,7 @@
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import GradientBackground from "@/components/layout/GradientBackground";
 
 export default function SiteLayout({
   children,
@@ -8,10 +9,15 @@ export default function SiteLayout({
   children: React.ReactNode;
 }) {
   return (
-    <SmoothScroll>
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
-    </SmoothScroll>
+    <>
+      <GradientBackground />
+      <SmoothScroll>
+        <div className="relative z-10">
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </div>
+      </SmoothScroll>
+    </>
   );
 }
