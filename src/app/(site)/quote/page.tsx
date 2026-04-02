@@ -2,7 +2,7 @@ import QuoteBuilder from "@/components/quote/QuoteBuilder";
 
 export const metadata = {
   title: "Get a Quote | Snowflake Systems",
-  description: "Get a quote for custom training center software. Choose your package and tell us about your business.",
+  description: "Tell us about your training center or coaching business and get a custom software quote.",
 };
 
 export default function QuotePage() {

@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { NAV_LINKS, SOCIAL_LINKS, SITE_CONFIG } from "@/lib/constants";
 import { Globe, ExternalLink, Link2, ArrowUpRight } from "lucide-react";
 
@@ -13,6 +14,11 @@ const iconMap: Record<string, React.ComponentType<{ size?: number }>> = {
 };
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isDarkPage = pathname === "/quote" || pathname === "/faq";
+
+  if (isDarkPage) return null;
+
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: "smooth" });

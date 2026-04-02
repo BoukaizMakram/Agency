@@ -16,6 +16,7 @@ export default function Navbar() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
   const router = useRouter();
+  const isDarkPage = pathname === "/quote" || pathname === "/faq";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +49,11 @@ export default function Navbar() {
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          isScrolled ? "glass-strong" : "bg-transparent"
+          isDarkPage
+            ? "bg-transparent"
+            : isScrolled
+              ? "glass-strong"
+              : "bg-transparent"
         )}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -67,9 +72,9 @@ export default function Navbar() {
                 alt={SITE_CONFIG.name}
                 width={36}
                 height={36}
-                className="h-9 w-9"
+                className={cn("h-9 w-9", isDarkPage && "invert")}
               />
-              <span className="font-display text-lg font-bold tracking-tight text-foreground">
+              <span className={cn("font-display text-lg font-bold tracking-tight", isDarkPage ? "text-background" : "text-foreground")}>
                 {SITE_CONFIG.name}
               </span>
             </a>
@@ -80,7 +85,7 @@ export default function Navbar() {
                 <button
                   key={link.label}
                   onClick={() => handleNavClick(link.href)}
-                  className="hover-line relative px-4 py-2 text-sm text-foreground transition-colors hover:text-foreground"
+                  className={cn("hover-line relative px-4 py-2 text-sm transition-colors", isDarkPage ? "text-background hover:text-background" : "text-foreground hover:text-foreground")}
                 >
                   {link.label}
                 </button>
@@ -91,7 +96,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-3">
               <motion.button
                 onClick={() => handleNavClick("#contact")}
-                className="flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-foreground"
+                className={cn("flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors", isDarkPage ? "border-background/20 text-background hover:border-background" : "border-border text-foreground hover:border-foreground")}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -99,7 +104,7 @@ export default function Navbar() {
               </motion.button>
               <Link href="/quote">
                 <motion.span
-                  className="flex items-center gap-2 rounded-full bg-foreground px-6 py-2.5 text-sm font-medium text-background transition-colors hover:bg-accent-hover"
+                  className={cn("flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-medium transition-colors", isDarkPage ? "bg-background text-foreground hover:bg-background/90" : "bg-foreground text-background hover:bg-accent-hover")}
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                 >
@@ -111,7 +116,7 @@ export default function Navbar() {
             {/* Mobile Menu Toggle */}
             <motion.button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="md:hidden relative z-50 p-2 text-foreground"
+              className={cn("md:hidden relative z-50 p-2", isDarkPage ? "text-background" : "text-foreground")}
               whileTap={{ scale: 0.9 }}
             >
               {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
